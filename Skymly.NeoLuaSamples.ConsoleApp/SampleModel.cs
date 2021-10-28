@@ -1,7 +1,5 @@
 ﻿using Newtonsoft.Json;
-
 using Splat;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +20,6 @@ namespace Skymly.NeoLuaSamples.ConsoleApp
 
         //常量
         public const double PI = 3.1416;
-
         //静态字段
         public static int Num = 888;
 

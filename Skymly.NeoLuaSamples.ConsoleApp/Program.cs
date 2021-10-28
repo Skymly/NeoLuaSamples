@@ -6,6 +6,8 @@ using Splat.Serilog;
 using Serilog.Events;
 using System.Reflection;
 using System.Linq;
+using Neo.IronLua;
+
 namespace Skymly.NeoLuaSamples.ConsoleApp
 {
     internal class Program
@@ -30,6 +32,7 @@ namespace Skymly.NeoLuaSamples.ConsoleApp
             Console.WriteLine(typeof(Sample01_DoString).IsSubclassOf(typeof(BaseSample)));
             Console.WriteLine(typeof(BaseSample).IsSubclassOf(typeof(Sample01_DoString)));
 
+            LuaType.RegisterTypeExtension(typeof(SampleModelExtensions));
 
             Assembly.GetExecutingAssembly().GetTypes().Where(x => x.IsSubclassOf(typeof(BaseSample))).ToList().ForEach(RunSample);
         }
@@ -37,7 +40,7 @@ namespace Skymly.NeoLuaSamples.ConsoleApp
         static void RunSample(Type sampleType)
         {
             var sample = (BaseSample)Activator.CreateInstance(sampleType);
-            Log.ForContext<Program>().Information("StartRun:" + sampleType.Name);
+            Log.ForContext<Program>().Information("Run:" + sampleType.Name);
             sample.Run();
             Console.WriteLine();
         }
