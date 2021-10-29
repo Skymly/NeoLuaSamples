@@ -10,6 +10,7 @@ namespace Skymly.NeoLuaSamples.ConsoleApp
 {
     public abstract class BaseSample : IEnableLogger
     {
+        
         public abstract void Run();
     }
 }
