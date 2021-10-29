@@ -7,7 +7,6 @@ namespace Skymly.NeoLuaSamples.ConsoleApp
         {
             using Lua l = new();
             var g = l.CreateEnvironment();
-            g["x"] = "1";
             g.DoChunk("Scripts/Sample03.lua");
         }
     }

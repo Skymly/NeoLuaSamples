@@ -10,8 +10,12 @@ namespace Skymly.NeoLuaSamples.ConsoleApp
 {
     public class SampleModel : IEnableLogger
     {
+
+
+
+
         //属性
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         //字段
         public int age;
 
@@ -23,8 +27,24 @@ namespace Skymly.NeoLuaSamples.ConsoleApp
         //静态字段
         public static int Num = 888;
 
+        public SampleModel()
+        {
+        }
+
+        public SampleModel(string name, int age)
+        {
+            Name = name;
+            this.age = age;
+        }
+
         //静态属性
         public static string Message { get; set; } = "Message From SampleModel";
+
+
+        public void ShowJson()
+        {
+            Console.WriteLine(this.ToJson());
+        }
 
         //实例方法
         public string ToJson()

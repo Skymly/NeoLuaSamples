@@ -13,6 +13,5 @@ namespace Skymly.NeoLuaSamples.ConsoleApp
         {
             Console.WriteLine($"{model.Name} Say: I am {model.age} years old.");
         }
-
     }
 }

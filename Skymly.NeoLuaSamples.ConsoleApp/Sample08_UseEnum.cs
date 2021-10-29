@@ -8,18 +8,13 @@ using System.Threading.Tasks;
 
 namespace Skymly.NeoLuaSamples.ConsoleApp
 {
-    public class Sample07_CallConstructor : BaseSample
+    public class Sample08_UseEnum : BaseSample
     {
-        public Sample07_CallConstructor()
-        {
-
-        }
-
         public override void Run()
         {
             using Lua l = new();
             var g = l.CreateEnvironment();
-            g.DoChunk("Scripts/Sample07.lua");
+            g.DoChunk("Scripts/Sample08.lua");
         }
     }
 }
