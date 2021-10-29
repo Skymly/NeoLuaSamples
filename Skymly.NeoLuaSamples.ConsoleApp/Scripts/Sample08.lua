@@ -33,3 +33,25 @@ PrintHasFlag(f1,f.液态)
 PrintHasFlag(f1,f.有毒)
 PrintHasFlag(f1,f.气态)
 
+
+--Useage Sample
+local SampleModel = clr.Skymly.NeoLuaSamples.ConsoleApp.SampleModel;
+local BindingFlags = clr.System.Reflection.BindingFlags;
+
+local flags = BindingFlags.Public | BindingFlags.Instance;
+local propAttr =  SampleModel:GetType().GetProperties(flags);--反射获取SampleModel类的公开实例属性。
+
+print("SampleModel类的公开实例属性共有" .. propAttr.Length .. '个,分别是：');
+for i=0,#propAttr-1 do
+	print(propAttr[i].Name)
+end
+
+
+
+
+
+
+
+
+
+

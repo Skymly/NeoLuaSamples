@@ -7,6 +7,7 @@ using Serilog.Events;
 using System.Reflection;
 using System.Linq;
 using Neo.IronLua;
+using Newtonsoft.Json;
 
 namespace Skymly.NeoLuaSamples.ConsoleApp
 {
@@ -31,9 +32,7 @@ namespace Skymly.NeoLuaSamples.ConsoleApp
 
             Console.WriteLine(typeof(Sample01_DoString).IsSubclassOf(typeof(BaseSample)));
             Console.WriteLine(typeof(BaseSample).IsSubclassOf(typeof(Sample01_DoString)));
-
             LuaType.RegisterTypeExtension(typeof(SampleModelExtensions));
-
             Assembly.GetExecutingAssembly().GetTypes().Where(x => x.IsSubclassOf(typeof(BaseSample))).ToList().ForEach(RunSample);
         }
 

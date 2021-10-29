@@ -3,6 +3,7 @@ using Splat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,7 +13,7 @@ namespace Skymly.NeoLuaSamples.ConsoleApp
     {
 
 
-
+        
 
         //属性
         public string Name { get; set; } = string.Empty;

@@ -25,5 +25,5 @@ obj3.age = 30
 obj3.ShowJson();
 
 local obj4:Model = Model("曹操",50);
-obj3.ShowJson();
+obj4.ShowJson();
 
