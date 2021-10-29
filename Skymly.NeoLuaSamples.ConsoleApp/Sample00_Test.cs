@@ -12,12 +12,9 @@ namespace Skymly.NeoLuaSamples.ConsoleApp
     {
         public override void Run()
         {
-            //Splat.LogHost.Log(this).Warn();
-
             using Lua l = new();
             var g = l.CreateEnvironment();
             var result = g.DoChunk("Scripts/Sample00.lua");
-
             Console.WriteLine(result[0]);
         }
     }

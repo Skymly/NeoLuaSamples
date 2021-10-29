@@ -1,4 +1,6 @@
-﻿using Splat;
+﻿using Neo.IronLua;
+
+using Splat;
 
 using System;
 using System.Collections.Generic;
@@ -11,6 +13,12 @@ namespace Skymly.NeoLuaSamples.ConsoleApp
     public abstract class BaseSample : IEnableLogger
     {
         
-        public abstract void Run();
+        public virtual void Run()
+        {
+            using Lua l = new();
+            var g = l.CreateEnvironment();
+            g.DoChunk($"Scripts/{GetType().Name[..8]}.lua");
+
+        }
     }
 }

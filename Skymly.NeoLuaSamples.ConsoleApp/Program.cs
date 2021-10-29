@@ -29,9 +29,6 @@ namespace Skymly.NeoLuaSamples.ConsoleApp
                .WriteTo.Console(outputTemplate: logTemplate)
                .CreateLogger();
             Locator.CurrentMutable.UseSerilogFullLogger();
-
-            Console.WriteLine(typeof(Sample01_DoString).IsSubclassOf(typeof(BaseSample)));
-            Console.WriteLine(typeof(BaseSample).IsSubclassOf(typeof(Sample01_DoString)));
             LuaType.RegisterTypeExtension(typeof(SampleModelExtensions));
             Assembly.GetExecutingAssembly().GetTypes().Where(x => x.IsSubclassOf(typeof(BaseSample))).ToList().ForEach(RunSample);
         }
