@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Skymly.NeoLuaSamples.ConsoleApp
+namespace Skymly.NeoLuaSamples.Tests
 {
     public enum SampleEnum
     {

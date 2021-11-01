@@ -1,19 +1,18 @@
 ﻿using Newtonsoft.Json;
-using Splat;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Skymly.NeoLuaSamples.ConsoleApp
+namespace Skymly.NeoLuaSamples.Tests
 {
-    public class SampleModel : IEnableLogger
+    public class SampleModel
     {
 
 
-        
+
 
         //属性
         public string Name { get; set; } = string.Empty;
@@ -75,6 +74,11 @@ namespace Skymly.NeoLuaSamples.ConsoleApp
         public static void PrintMessage()
         {
             Console.WriteLine($"Message={Message},Num={Num}");
+        }
+
+        public static int Sum(params int[] values)
+        {
+            return values.Sum();
         }
     }
 }

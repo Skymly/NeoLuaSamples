@@ -1,4 +1,4 @@
-﻿local SampleModel = clr.Skymly.NeoLuaSamples.ConsoleApp.SampleModel
+﻿local SampleModel = clr.Skymly.NeoLuaSamples.Tests.SampleModel
 
 local PrintType = function(x)
 	print("Lua Type:" .. type(x) )

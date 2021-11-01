@@ -4,7 +4,7 @@
 end
 
 local GenericList =  clr.System.Collections.Generic.List;
-local Model = clr.Skymly.NeoLuaSamples.ConsoleApp.SampleModel;
+local Model = clr.Skymly.NeoLuaSamples.Tests.SampleModel;
 
 local list1 = GenericList[Model]();
 
@@ -19,7 +19,7 @@ print(ToJson(list1))
 
 -- 使用 const 别名 typeof 泛型全名[泛型参数全名] 可以拥有更好的性能
 
-const ListOfModel typeof System.Collections.Generic.List[Skymly.NeoLuaSamples.ConsoleApp.SampleModel];
+const ListOfModel typeof System.Collections.Generic.List[Skymly.NeoLuaSamples.Tests.SampleModel];
 local list2 = ListOfModel();
 list2.Add(Model("aaa",55));
 print(list2.Count);

@@ -1,7 +1,7 @@
 ﻿
 --在lua中使用.NET的构造方法创建对象
 
-local SampleModel = clr.Skymly.NeoLuaSamples.ConsoleApp.SampleModel;
+local SampleModel = clr.Skymly.NeoLuaSamples.Tests.SampleModel;
 
 --调用无参构造方法
 local obj1 = SampleModel();
@@ -17,7 +17,7 @@ obj2.ShowJson();
 
 --使用  const 类型别名 typeof 类型全名
 
-const Model typeof Skymly.NeoLuaSamples.ConsoleApp.SampleModel;
+const Model typeof Skymly.NeoLuaSamples.Tests.SampleModel;
 
 local obj3 = Model();
 obj3.Name = "夏侯惇" 

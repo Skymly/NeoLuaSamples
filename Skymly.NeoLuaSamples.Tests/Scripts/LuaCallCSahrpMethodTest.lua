@@ -11,7 +11,7 @@ print("半径3的圆形周长是"..circumference);
 
 
 
-local Model = clr.Skymly.NeoLuaSamples.ConsoleApp.SampleModel
+local Model = clr.Skymly.NeoLuaSamples.Tests.SampleModel;
 Model.PrintMessage();
 
 m.SetName("张三").SetName("李四").SetName("王五").SetName("赵六");
@@ -25,8 +25,13 @@ m.SetName("张三").SetName("李四").SetName("王五").SetName("赵六");
 	Lua: clr.Neo.IronLua.LuaType:RegisterTypeExtension(clr.SomeExtensionType);
 ]]
 
---clr.Neo.IronLua.LuaType:RegisterTypeExtension(clr.Skymly.NeoLuaSamples.ConsoleApp.SampleModelExtensions)
+clr.Neo.IronLua.LuaType:RegisterTypeExtension(clr.Skymly.NeoLuaSamples.Tests.SampleModelExtensions)
 m:Say()
 
---如果没有注册拓展方法 也可以直接按照静态方法来调用
-clr.Skymly.NeoLuaSamples.ConsoleApp.SampleModelExtensions:Say(m)
+--无论是否注册拓展方法 都可以直接按照静态方法来调用
+clr.Skymly.NeoLuaSamples.Tests.SampleModelExtensions:Say(m)
+
+--Variable Arity Methods
+local sum = Model.Sum(1,3,10,2);
+print('Sum(1,3,10,2) = '.. sum);
+

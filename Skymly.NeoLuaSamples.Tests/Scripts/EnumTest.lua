@@ -1,11 +1,11 @@
-﻿local se = clr.Skymly.NeoLuaSamples.ConsoleApp.SampleEnum
+﻿local se = clr.Skymly.NeoLuaSamples.Tests.SampleEnum
 
 --获取枚举项
 print(se.Red)
 
 --转换类型
 
-local f = clr.Skymly.NeoLuaSamples.ConsoleApp.SampleFlagEnum
+local f = clr.Skymly.NeoLuaSamples.Tests.SampleFlagEnum
 
 --使用cast强转
 
@@ -35,7 +35,7 @@ PrintHasFlag(f1,f.气态)
 
 
 --Useage Sample
-local SampleModel = clr.Skymly.NeoLuaSamples.ConsoleApp.SampleModel;
+local SampleModel = clr.Skymly.NeoLuaSamples.Tests.SampleModel;
 local BindingFlags = clr.System.Reflection.BindingFlags;
 
 local flags = BindingFlags.Public | BindingFlags.Instance;

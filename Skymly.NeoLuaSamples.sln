@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31815.197
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skymly.NeoLuaSamples.ConsoleApp", "Skymly.NeoLuaSamples.ConsoleApp\Skymly.NeoLuaSamples.ConsoleApp.csproj", "{1827D7C6-705F-41BC-82B9-B7149BA86821}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skymly.Xaml.NeoLua.Wpf", "Skymly.Xaml.NeoLua.Wpf\Skymly.Xaml.NeoLua.Wpf.csproj", "{83D1C810-4EBA-416A-BB92-AAB65002AB4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skymly.Xaml.NeoLua.Wpf", "Skymly.Xaml.NeoLua.Wpf\Skymly.Xaml.NeoLua.Wpf.csproj", "{83D1C810-4EBA-416A-BB92-AAB65002AB4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skymly.NeoLuaSamples.Wpf", "Skymly.NeoLuaSamples.Wpf\Skymly.NeoLuaSamples.Wpf.csproj", "{EBD3743E-EABF-4A54-81A1-4FD0BD2C1CB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skymly.NeoLuaSamples.Wpf", "Skymly.NeoLuaSamples.Wpf\Skymly.NeoLuaSamples.Wpf.csproj", "{EBD3743E-EABF-4A54-81A1-4FD0BD2C1CB8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skymly.NeoLuaSamples.Tests", "Skymly.NeoLuaSamples.Tests\Skymly.NeoLuaSamples.Tests.csproj", "{5A621CB0-7364-42A7-AC18-D497E9115F69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1827D7C6-705F-41BC-82B9-B7149BA86821}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1827D7C6-705F-41BC-82B9-B7149BA86821}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1827D7C6-705F-41BC-82B9-B7149BA86821}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1827D7C6-705F-41BC-82B9-B7149BA86821}.Release|Any CPU.Build.0 = Release|Any CPU
 		{83D1C810-4EBA-416A-BB92-AAB65002AB4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{83D1C810-4EBA-416A-BB92-AAB65002AB4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83D1C810-4EBA-416A-BB92-AAB65002AB4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{EBD3743E-EABF-4A54-81A1-4FD0BD2C1CB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBD3743E-EABF-4A54-81A1-4FD0BD2C1CB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBD3743E-EABF-4A54-81A1-4FD0BD2C1CB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A621CB0-7364-42A7-AC18-D497E9115F69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A621CB0-7364-42A7-AC18-D497E9115F69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A621CB0-7364-42A7-AC18-D497E9115F69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A621CB0-7364-42A7-AC18-D497E9115F69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
