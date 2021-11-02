@@ -39,7 +39,7 @@
     <None Update="Scripts\PropertyAndFieldTest.lua">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Scripts\LuaCallCSahrpMethodTest.lua">
+    <None Update="Scripts\LuaCallCSharpMethodTest.lua">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Scripts\ConstructorTest.lua">
