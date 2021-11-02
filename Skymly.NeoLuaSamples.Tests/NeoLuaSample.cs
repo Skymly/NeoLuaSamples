@@ -106,7 +106,7 @@ namespace Skymly.NeoLuaSamples.Tests
         /// Lua调用C#方法
         /// </summary>
         [Test]
-        public void LuaCallCSahrpMethodTest()
+        public void LuaCallCSharpMethodTest()
         {
             using Lua l = new();
             var g = l.CreateEnvironment();
@@ -116,7 +116,7 @@ namespace Skymly.NeoLuaSamples.Tests
                 age = 18,
             };
             g["m"] = model_a;
-            g.DoChunk("Scripts/LuaCallCSahrpMethodTest.lua");
+            g.DoChunk("Scripts/LuaCallCSharpMethodTest.lua");
         }
 
         /// <summary>
