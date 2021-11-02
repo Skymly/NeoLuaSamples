@@ -20,6 +20,9 @@ namespace Skymly.NeoLuaSamples.Tests
 
         }
 
+        /// <summary>
+        /// 执行字符串
+        /// </summary>
         [Test]
         public void DoStringTest()
         {
@@ -28,6 +31,9 @@ namespace Skymly.NeoLuaSamples.Tests
             g.DoChunk("print('Hello World!');", "Sample01");
         }
 
+        /// <summary>
+        /// 执行字符串 传参
+        /// </summary>
         [Test]
         public void DoStringWithArgsTest()
         {
@@ -44,7 +50,9 @@ namespace Skymly.NeoLuaSamples.Tests
             g.DoChunk(code, "Sample01", args);
         }
 
-
+        /// <summary>
+        /// 执行文件
+        /// </summary>
         [Test]
         public void DoFileTest()
         {
@@ -53,7 +61,9 @@ namespace Skymly.NeoLuaSamples.Tests
             g.DoChunk($"Scripts/DoFileTest.lua");
         }
 
-
+        /// <summary>
+        /// 执行文件 传参数
+        /// </summary>
         [Test]
         public void DoFileWithArgsTest()
         {
@@ -69,7 +79,9 @@ namespace Skymly.NeoLuaSamples.Tests
             g.DoChunk("Scripts/DoFileWithArgsTest.lua", args);
         }
 
-
+        /// <summary>
+        /// 属性、字段
+        /// </summary>
         [Test]
         public void PropertyAndFieldTest()
         {
@@ -90,6 +102,9 @@ namespace Skymly.NeoLuaSamples.Tests
             g.DoChunk("Scripts/PropertyAndFieldTest.lua");
         }
 
+        /// <summary>
+        /// Lua调用C#方法
+        /// </summary>
         [Test]
         public void LuaCallCSahrpMethodTest()
         {
@@ -104,6 +119,9 @@ namespace Skymly.NeoLuaSamples.Tests
             g.DoChunk("Scripts/LuaCallCSahrpMethodTest.lua");
         }
 
+        /// <summary>
+        /// 构造方法
+        /// </summary>
         [Test]
         public void ConstructorTest()
         {
@@ -111,6 +129,10 @@ namespace Skymly.NeoLuaSamples.Tests
             var g = l.CreateEnvironment();
             g.DoChunk("Scripts/ConstructorTest.lua");
         }
+
+        /// <summary>
+        /// 枚举
+        /// </summary>
         [Test]
         public void EnumTest()
         {
@@ -118,6 +140,11 @@ namespace Skymly.NeoLuaSamples.Tests
             var g = l.CreateEnvironment();
             g.DoChunk("Scripts/EnumTest.lua");
         }
+
+
+        /// <summary>
+        /// 泛型
+        /// </summary>
         [Test]
         public void GenericTest()
         {
@@ -126,7 +153,10 @@ namespace Skymly.NeoLuaSamples.Tests
             g.DoChunk("Scripts/GenericTest.lua");
         }
 
-
+        /// <summary>
+        /// Lua循环
+        /// </summary>
+        /// <param name="count"></param>
         [Test]
         [TestCase(0)]
         [TestCase(5)]
@@ -143,6 +173,10 @@ namespace Skymly.NeoLuaSamples.Tests
             g.DoChunk("Scripts/LuaLoopTest.lua");
         }
 
+        /// <summary>
+        /// Lua foreach
+        /// 原生lua并无foreach关键字 这是Neolua实现的
+        /// </summary>
         [Test]
         public void LuaForeachTest()
         {
@@ -157,7 +191,9 @@ namespace Skymly.NeoLuaSamples.Tests
 
         }
 
-
+        /// <summary>
+        /// Lua迭代器
+        /// </summary>
         [Test]
         public void LuaIteratorTest()
         {
@@ -166,6 +202,9 @@ namespace Skymly.NeoLuaSamples.Tests
             g.DoChunk("Scripts/LuaIteratorTest.lua");
         }
 
+        /// <summary>
+        /// C#调用LuaFunction
+        /// </summary>
         [Test]
         public void CSharpCallLuaFunctionTest()
         {
@@ -178,9 +217,16 @@ namespace Skymly.NeoLuaSamples.Tests
 
             var f = g.CallMember("Fibonacci", 5).ToInt32();
             Assert.AreEqual(f, 8);
-
-
-
+        }
+        /// <summary>
+        /// 加载模块
+        /// </summary>
+        [Test]
+        public void RequireModuleTest()
+        {
+            using Lua l = new();
+            var g = l.CreateEnvironment();
+            var r = g.DoChunk("Scripts/RequireModuleTest.lua");
         }
 
     }
