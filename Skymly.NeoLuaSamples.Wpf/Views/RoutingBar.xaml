@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="Skymly.NeoLuaSamples.Wpf.Views.RoutingBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/" 
+             xmlns:viewmodels="clr-namespace:Skymly.NeoLuaSamples.Wpf.ViewModels" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" x:Name="routingBar"
+             xmlns:views="clr-namespace:Skymly.NeoLuaSamples.Wpf.Views"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             d:DataContext="{d:DesignInstance Type=viewmodels:RoutingBarViewModel}"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <StatusBar Padding="5 20 5 5" ItemsSource="{Binding Items}">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel />
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            <StatusBar.ItemContainerStyle>
+                <Style TargetType="StatusBarItem">
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                </Style>
+            </StatusBar.ItemContainerStyle>
+            <StatusBar.ItemTemplate>
+                <DataTemplate>
+                    <Button HorizontalAlignment="Stretch" Content="{Binding Display}" CommandParameter="{Binding .}" Command="{Binding ElementName=routingBar,Path=DataContext.RoutingCommand}"/>
+                </DataTemplate>
+            </StatusBar.ItemTemplate>
+        </StatusBar>
+    </Grid>
+</UserControl>

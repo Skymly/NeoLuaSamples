@@ -15,7 +15,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Scripts\LuaLambdaTest.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Scripts\CSharpCallLuaFunctionTest.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Scripts\TypeTest.lua">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Scripts\RequireModuleTest.lua">

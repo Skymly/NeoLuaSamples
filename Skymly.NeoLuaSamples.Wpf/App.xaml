@@ -1,9 +1,19 @@
-﻿<Application x:Class="Skymly.NeoLuaSamples.Wpf.App"
+﻿<prism:PrismApplication x:Class="Skymly.NeoLuaSamples.Wpf.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Skymly.NeoLuaSamples.Wpf"
-             StartupUri="MainWindow.xaml">
+             xmlns:skymly="https://github.com/Skymly"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:local="clr-namespace:Skymly.NeoLuaSamples.Wpf">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <skymly:LuaConverter x:Key="LuaConverter"></skymly:LuaConverter>
+            <skymly:LuaMultiConverter x:Key="LuaMultiConverter"></skymly:LuaMultiConverter>
+        </ResourceDictionary>
     </Application.Resources>
-</Application>
+</prism:PrismApplication>

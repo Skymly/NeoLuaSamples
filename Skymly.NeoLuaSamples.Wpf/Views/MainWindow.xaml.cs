@@ -22,7 +22,6 @@ namespace Skymly.NeoLuaSamples.Wpf
     {
         public MainWindow()
         {
-
             InitializeComponent();
         }
     }

@@ -13,11 +13,10 @@ namespace Skymly.NeoLuaSamples.Tests
 {
     public class Tests
     {
-        const string author = "Skymly";
         [SetUp]
         public void Setup()
         {
-
+            var array = new double[] { 55, 55, 55, 55 };
         }
 
         /// <summary>
@@ -28,7 +27,7 @@ namespace Skymly.NeoLuaSamples.Tests
         {
             using Lua l = new();
             var g = l.CreateEnvironment();
-            g.DoChunk("print('Hello World!');", "Sample01");
+            g.DoChunk("print('Hello World!');", "DoStringTest");
         }
 
         /// <summary>
@@ -47,7 +46,7 @@ namespace Skymly.NeoLuaSamples.Tests
                 ["c"] = "Lua",
                 ["d"] = "CSharp",
             }.ToArray();
-            g.DoChunk(code, "Sample01", args);
+            g.DoChunk(code, "DoStringWithArgsTest", args);
         }
 
         /// <summary>
@@ -78,6 +77,18 @@ namespace Skymly.NeoLuaSamples.Tests
             }.ToArray();
             g.DoChunk("Scripts/DoFileWithArgsTest.lua", args);
         }
+
+        /// <summary>
+        /// ¿‡–Õ
+        /// </summary>
+        [Test]
+        public void TypeTest()
+        {
+            using Lua l = new();
+            var g = l.CreateEnvironment();
+            g.DoChunk($"Scripts/TypeTest.lua");
+        }
+
 
         /// <summary>
         ///  Ù–‘°¢◊÷∂Œ
@@ -229,5 +240,26 @@ namespace Skymly.NeoLuaSamples.Tests
             var r = g.DoChunk("Scripts/RequireModuleTest.lua");
         }
 
+        [Test]
+        public void LuaLambdaTest()
+        {
+            using Lua l = new();
+            var g = l.CreateEnvironment();
+            var r = g.DoChunk("Scripts/LuaLambdaTest.lua");
+
+        }
+
+
+       
+
+    }
+    public class LambdaTestModel
+    {
+        public string Id { get; set; } = Guid.NewGuid().ToString();
+
+        public int Get(Func<int> arg)
+        {
+            return arg();
+        }
     }
 }
