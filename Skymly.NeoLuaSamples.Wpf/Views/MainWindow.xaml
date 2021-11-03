@@ -11,7 +11,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:skymly="https://github.com/Skymly"
         xmlns:views="clr-namespace:Skymly.NeoLuaSamples.Wpf.Views"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="540" Width="960">
 
    
 

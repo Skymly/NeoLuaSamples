@@ -16,6 +16,7 @@ using Skymly.NeoLuaSamples.Wpf.Views;
 using Skymly.NeoLuaSamples.Wpf.ViewModels;
 using Splat;
 using Splat.Serilog;
+using System.Windows.Media;
 namespace Skymly.NeoLuaSamples.Wpf
 {
     /// <summary>

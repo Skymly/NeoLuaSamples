@@ -12,8 +12,8 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <skymly:LuaConverter x:Key="LuaConverter"></skymly:LuaConverter>
-            <skymly:LuaMultiConverter x:Key="LuaMultiConverter"></skymly:LuaMultiConverter>
+            <skymly:LuaConverter x:Key="LuaConverter" IgnoreException="False"></skymly:LuaConverter>
+            <skymly:LuaMultiConverter x:Key="LuaMultiConverter" IgnoreException="False"></skymly:LuaMultiConverter>
         </ResourceDictionary>
     </Application.Resources>
 </prism:PrismApplication>

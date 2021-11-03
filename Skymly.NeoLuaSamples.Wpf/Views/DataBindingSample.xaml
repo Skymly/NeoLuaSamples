@@ -4,35 +4,40 @@
              xmlns:prism="http://prismlibrary.com/"       
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" FontSize="24"
+             mc:Ignorable="d" FontSize="18"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes" 
-             d:Width="800" d:Height="450"
+             d:Width="800" d:Height="450" 
+             d:Background="{StaticResource MaterialDesignBackground}"
              prism:ViewModelLocator.AutoWireViewModel="True">
     <UserControl.Resources>
         <Style x:Key="SliderStyle1" TargetType="Slider" BasedOn="{StaticResource MaterialDesignDiscreteSlider}">
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="TickFrequency" Value="1"/>
-            <Setter Property="TickPlacement" Value="BottomRight"/>
+            <Setter Property="Margin" Value="0 10 0 0"/>
+            <Setter Property="TickPlacement" Value="None"/>
             <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=StackPanel},Path=ActualWidth,Converter={StaticResource LuaConverter},ConverterParameter='return value * 0.7'}"/>
         </Style>
-
-
     </UserControl.Resources>
 
     <Border x:Name="border" BorderBrush="{StaticResource PrimaryHueMidBrush}" BorderThickness="1" Margin="20">
         <StackPanel>
-            <TextBlock Text="{Binding ElementName=border,Path=ActualWidth,StringFormat='{}Border的宽度是{0}'}" />
-            <TextBlock Text="{Binding ElementName=border,Path=ActualWidth,StringFormat='{}Border的高度是{0}'}" />
+            <TextBlock Text="{Binding ElementName=border,Mode=OneWay,Path=ActualWidth,StringFormat='{}Border的宽度是{0}'}" />
+            <TextBlock Text="{Binding ElementName=border,Mode=OneWay,Path=ActualWidth,StringFormat='{}Border的高度是{0}'}" />
             <TextBlock>
                 <TextBlock.Text>
-                    <MultiBinding  Converter="{StaticResource LuaMultiConverter}" ConverterParameter="return 'Border的面积是' .. values[0] * values[1]">
+                    <MultiBinding  Converter="{StaticResource LuaMultiConverter}" Mode="OneWay" ConverterParameter="return 'Border的面积是' .. values[0] * values[1]">
                         <Binding  ElementName="border" Path="ActualWidth" Delay="50" Mode="OneWay"/>
                         <Binding  ElementName="border" Path="ActualHeight" Delay="50" Mode="OneWay"/>
                     </MultiBinding>
                 </TextBlock.Text>
             </TextBlock>
-            <TextBlock Text="拖动滑块来改变背景颜色"/>
-
+            <TextBlock>
+                <Run Text="拖动滑块来改变背景颜色:"></Run>
+                <Run Text="{Binding ElementName=sliderA,Path=Value,Mode=OneWay,Converter={StaticResource LuaConverter},ConverterParameter='local a = cast(int,value);return a.ToString([[X2]]);'}"/>
+                <Run Text="{Binding ElementName=sliderR,Path=Value,Mode=OneWay,Converter={StaticResource LuaConverter},ConverterParameter='local a = cast(int,value);return a.ToString([[X2]]);'}"/>
+                <Run Text="{Binding ElementName=sliderG,Path=Value,Mode=OneWay,Converter={StaticResource LuaConverter},ConverterParameter='local a = cast(int,value);return a.ToString([[X2]]);'}"/>
+                <Run Text="{Binding ElementName=sliderB,Path=Value,Mode=OneWay,Converter={StaticResource LuaConverter},ConverterParameter='local a = cast(int,value);return a.ToString([[X2]]);'}"/>
+            </TextBlock>
             <StackPanel>
                 <Slider  x:Name="sliderA"   Minimum="0" Maximum="255" Style="{StaticResource SliderStyle1}"/>
                 <Slider Foreground="{Binding RelativeSource={RelativeSource Self},Path=Value,Mode=OneWay,Delay=100,Converter={StaticResource LuaConverter},ConverterParameter='local a = cast(int,value); local b = a.ToString([[X2]]); return [[#FF]]..b..[[0000]]'}"
@@ -42,17 +47,9 @@
                 <Slider Foreground="{Binding RelativeSource={RelativeSource Self},Path=Value,Mode=OneWay,Delay=100,Converter={StaticResource LuaConverter},ConverterParameter='local a = cast(int,value); local b = a.ToString([[X2]]); return [[#FF0000]]..b'}" 
                     x:Name="sliderB" Minimum="0" Maximum="255" Style="{StaticResource SliderStyle1}"/>
             </StackPanel>
-            <TextBlock>
-                <Run Text="{Binding ElementName=sliderA,Path=Value,Mode=OneWay,Converter={StaticResource LuaConverter},ConverterParameter='local a = cast(int,value);return a.ToString([[X2]]);'}"/>
-                <Run Text="{Binding ElementName=sliderR,Path=Value,Mode=OneWay,Converter={StaticResource LuaConverter},ConverterParameter='local a = cast(int,value);return a.ToString([[X2]]);'}"/>
-                <Run Text="{Binding ElementName=sliderG,Path=Value,Mode=OneWay,Converter={StaticResource LuaConverter},ConverterParameter='local a = cast(int,value);return a.ToString([[X2]]);'}"/>
-                <Run Text="{Binding ElementName=sliderB,Path=Value,Mode=OneWay,Converter={StaticResource LuaConverter},ConverterParameter='local a = cast(int,value);return a.ToString([[X2]]);'}"/>
-            </TextBlock>
-            <Ellipse Width="50" Height="50" StrokeThickness="1" Stroke="{StaticResource PrimaryHueMidBrush}">
-               
-            </Ellipse>
-            <UniformGrid Columns="2" HorizontalAlignment="Stretch" Height="150">
-                <Ellipse Margin="10" StrokeThickness="1" Stroke="{StaticResource PrimaryHueMidBrush}">
+            
+            <UniformGrid Columns="3" HorizontalAlignment="Stretch" Height="150">
+                <Ellipse Margin="10" Width="100" Height="100"  StrokeThickness="1" Stroke="{StaticResource PrimaryHueMidBrush}">
                     <Ellipse.Fill>
                         <MultiBinding  Converter="{StaticResource LuaMultiConverter}" ConverterParameter="return clr.System.Windows.Media.SolidColorBrush(clr.System.Windows.Media.Color.FromArgb(values[0],values[1],values[2],values[3]));">
                             <Binding  ElementName="sliderA" Path="Value" Delay="200" Mode="OneWay" />
@@ -63,20 +60,21 @@
                     </Ellipse.Fill>
                 </Ellipse>
 
-                <Rectangle Margin="10" StrokeThickness="1" Stroke="{StaticResource SecondaryHueMidBrush}">
+                <!--如果你的设计器报错了,应该是下边这个转换器require的Module路径找不到,不过并不影响编译和运行-->
+                <!--如果你希望屏蔽这个报错 那么你可以把Converter的IgnoreException属性设置为True-->
+                <Rectangle Margin="10" Width="100" Height="100"  StrokeThickness="1" Stroke="{StaticResource SecondaryHueMidBrush}">
                     <Rectangle.Fill>
-                        <MultiBinding  Converter="{StaticResource LuaMultiConverter}" ConverterParameter="return clr.System.String.Format( [[#{0:X2}{1:X2}{2:X2}{3:X2}]],values[0],values[1],values[2],values[3]);">
-                            <Binding  ElementName="sliderA" Path="Value" Delay="200" Mode="OneWay" />
-                            <Binding  ElementName="sliderR" Path="Value" Delay="200" Mode="OneWay" />
-                            <Binding  ElementName="sliderG" Path="Value" Delay="200" Mode="OneWay" />
-                            <Binding  ElementName="sliderB" Path="Value" Delay="200" Mode="OneWay" />
+                        <MultiBinding  Converter="{StaticResource LuaMultiConverter}" Delay="200" ConverterParameter="local Media=require([[Scripts\Media]]); return Media.GetBrush(values); ">
+                            <Binding  ElementName="sliderA" Path="Value" Mode="OneWay" />
+                            <Binding  ElementName="sliderR" Path="Value" Mode="OneWay" />
+                            <Binding  ElementName="sliderG" Path="Value" Mode="OneWay" />
+                            <Binding  ElementName="sliderB" Path="Value" Mode="OneWay" />
                         </MultiBinding>
                     </Rectangle.Fill>
                 </Rectangle>
-                
             </UniformGrid>
-
-
+            
+            
         </StackPanel>
     </Border>
 </UserControl>
